@@ -52,7 +52,8 @@ const sections = [
     actions={[{ variant: 'primary', text: `Chiama ${business.phone}`, href: `tel:${business.phoneHref}` }]}
   >
     <Fragment slot="title">
-      {zone.title} <br />
+      {zone.title}
+      <br />
       <span class="text-accent dark:text-white">pronto intervento 24H</span>
     </Fragment>
 
@@ -73,14 +74,18 @@ const sections = [
 
   <section class="py-12 md:py-16">
     <div class="mx-auto max-w-4xl px-6">
-      <div class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-gray-900 prose-p:text-muted prose-strong:text-gray-950">
+      <div
+        class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-gray-900 prose-p:text-muted prose-strong:text-gray-950"
+      >
         <h2>{zone.title}: autospurgo e disotturazioni vicino a te</h2>
-        {sections.map((section) => (
-          <>
-            <h3>{section.title}</h3>
-            <p set:html={section.body} />
-          </>
-        ))}
+        {
+          sections.map((section) => (
+            <>
+              <h3>{section.title}</h3>
+              <p set:html={section.body} />
+            </>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -139,7 +144,8 @@ const sections = [
       },
       {
         title: `Quanto costa un intervento di spurgo a ${zone.city}?`,
-        description: 'Il costo dipende da urgenza, accessi, tipo di problema e attrezzatura necessaria. La prima valutazione parte dalla chiamata.',
+        description:
+          'Il costo dipende da urgenza, accessi, tipo di problema e attrezzatura necessaria. La prima valutazione parte dalla chiamata.',
       },
       {
         title: 'Che informazioni servono?',
@@ -147,7 +153,8 @@ const sections = [
       },
       {
         title: 'Posso richiedere anche manutenzione programmata?',
-        description: 'Sì, oltre alle urgenze organizziamo pulizie periodiche di pozzetti, fosse biologiche, caditoie e tratti fognari.',
+        description:
+          'Sì, oltre alle urgenze organizziamo pulizie periodiche di pozzetti, fosse biologiche, caditoie e tratti fognari.',
       },
     ]}
   />

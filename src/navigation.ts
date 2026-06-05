@@ -33,7 +33,10 @@ export const footerData = {
   links: [
     {
       title: 'Servizi',
-      links: servicePages.map((service) => ({ text: service.shortTitle, href: getPermalink(`/services/${service.slug}`) })),
+      links: servicePages.map((service) => ({
+        text: service.shortTitle,
+        href: getPermalink(`/services/${service.slug}`),
+      })),
     },
     {
       title: 'Zone',

@@ -13,7 +13,8 @@ export const servicePages = [
     slug: 'disotturazione-wc',
     title: 'Disotturazione WC a Novara',
     shortTitle: 'Disotturazione WC',
-    description: 'Servizio rapido per WC intasati, scarichi bloccati, rigurgiti e cattivi odori nelle abitazioni e nei locali di Novara.',
+    description:
+      'Servizio rapido per WC intasati, scarichi bloccati, rigurgiti e cattivi odori nelle abitazioni e nei locali di Novara.',
     problem: 'un WC bloccato, uno scarico che non defluisce o acqua che risale dal sanitario',
     method: 'sonde professionali, stasatrici compatte e controlli progressivi della linea di scarico',
     image: '/images/service-disotturazione-wc.png',
@@ -23,7 +24,8 @@ export const servicePages = [
     slug: 'disotturazione-lavandini',
     title: 'Disotturazione Lavandini a Novara',
     shortTitle: 'Disotturazione Lavandini',
-    description: 'Pulizia di lavandini, lavabi e scarichi cucina ostruiti da grassi, sapone, calcare e residui accumulati.',
+    description:
+      'Pulizia di lavandini, lavabi e scarichi cucina ostruiti da grassi, sapone, calcare e residui accumulati.',
     problem: 'un lavandino lento, un sifone ostruito o uno scarico cucina che trattiene acqua e odori',
     method: 'pulizia del tratto interessato, uso di sonde flessibili e verifica del deflusso dopo il lavaggio',
     image: '/images/service-disotturazione-lavandini.png',
@@ -43,7 +45,8 @@ export const servicePages = [
     slug: 'videoispezioni-fognature',
     title: 'Videoispezioni Fognature a Novara',
     shortTitle: 'Videoispezioni Fognature',
-    description: 'Controllo con telecamera di tubazioni e fognature per individuare rotture, radici, cedimenti e ostruzioni ricorrenti.',
+    description:
+      'Controllo con telecamera di tubazioni e fognature per individuare rotture, radici, cedimenti e ostruzioni ricorrenti.',
     problem: 'un blocco ricorrente, una tubazione sospetta o una rete fognaria da controllare prima di intervenire',
     method: 'telecamera professionale, lettura del tracciato e individuazione dei punti critici interni',
     image: '/images/service-videoispezioni-fognature.png',
@@ -63,7 +66,8 @@ export const servicePages = [
     slug: 'pronto-intervento-24h',
     title: 'Pronto Intervento Spurghi 24H a Novara',
     shortTitle: 'Pronto Intervento 24H',
-    description: 'Emergenze fognarie 24H per scarichi bloccati, allagamenti, reflussi e richieste urgenti di autospurgo.',
+    description:
+      'Emergenze fognarie 24H per scarichi bloccati, allagamenti, reflussi e richieste urgenti di autospurgo.',
     problem: 'un problema improvviso che non puo aspettare, come rigurgiti, allagamenti o scarichi inutilizzabili',
     method: 'ascolto telefonico, scelta del mezzo corretto e intervento urgente con attrezzatura dedicata',
     image: '/images/service-pronto-intervento-24h.png',
@@ -72,10 +76,40 @@ export const servicePages = [
 ];
 
 export const zonePages = [
-  { slug: 'novara', title: 'Spurghi a Novara', city: 'Novara', roads: 'Corso Torino, Viale Roma, Corso Milano, Via XX Settembre e zona centro' },
-  { slug: 'trecate', title: 'Spurghi a Trecate', city: 'Trecate', roads: 'Via Novara, Corso Roma, Via Matteotti, Via Mazzini e aree residenziali' },
-  { slug: 'galliate', title: 'Spurghi a Galliate', city: 'Galliate', roads: 'Via Novara, Via Varallino, Corso Roma, Viale Beato Quagliotti e zone artigianali' },
-  { slug: 'borgomanero', title: 'Spurghi a Borgomanero', city: 'Borgomanero', roads: 'Corso Roma, Viale Marazza, Via Novara, Via Arona e quartieri vicini' },
-  { slug: 'cameri', title: 'Spurghi a Cameri', city: 'Cameri', roads: 'Via Novara, Via Roma, Via Matteotti, Via Baracca e aree limitrofe' },
-  { slug: 'cerano', title: 'Spurghi a Cerano', city: 'Cerano', roads: 'Via Novara, Via Roma, Via Matteotti, Via Vigevano e zone periferiche' },
+  {
+    slug: 'novara',
+    title: 'Spurghi a Novara',
+    city: 'Novara',
+    roads: 'Corso Torino, Viale Roma, Corso Milano, Via XX Settembre e zona centro',
+  },
+  {
+    slug: 'trecate',
+    title: 'Spurghi a Trecate',
+    city: 'Trecate',
+    roads: 'Via Novara, Corso Roma, Via Matteotti, Via Mazzini e aree residenziali',
+  },
+  {
+    slug: 'galliate',
+    title: 'Spurghi a Galliate',
+    city: 'Galliate',
+    roads: 'Via Novara, Via Varallino, Corso Roma, Viale Beato Quagliotti e zone artigianali',
+  },
+  {
+    slug: 'borgomanero',
+    title: 'Spurghi a Borgomanero',
+    city: 'Borgomanero',
+    roads: 'Corso Roma, Viale Marazza, Via Novara, Via Arona e quartieri vicini',
+  },
+  {
+    slug: 'cameri',
+    title: 'Spurghi a Cameri',
+    city: 'Cameri',
+    roads: 'Via Novara, Via Roma, Via Matteotti, Via Baracca e aree limitrofe',
+  },
+  {
+    slug: 'cerano',
+    title: 'Spurghi a Cerano',
+    city: 'Cerano',
+    roads: 'Via Novara, Via Roma, Via Matteotti, Via Vigevano e zone periferiche',
+  },
 ];

@@ -10,7 +10,7 @@ metadata:
   title:
     default: Spurghi Novara 24H
     template: '%s - Spurghi Novara'
-  description: "Spurghi Novara Fast: pronto intervento 24H per autospurgo, disotturazione tubi, videoispezioni e fognature a Novara. Telefono 0321 174 0079."
+  description: 'Spurghi Novara Fast: pronto intervento 24H per autospurgo, disotturazione tubi, videoispezioni e fognature a Novara. Telefono 0321 174 0079.'
   robots:
     index: true
     follow: true

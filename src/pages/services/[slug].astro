@@ -45,7 +45,14 @@ const sections = [
     tagline="Servizio"
     title={service.title}
     subtitle={service.description}
-    actions={[{ variant: 'primary', text: `Chiama ${business.phone}`, href: `tel:${business.phoneHref}`, icon: 'tabler:phone-call' }]}
+    actions={[
+      {
+        variant: 'primary',
+        text: `Chiama ${business.phone}`,
+        href: `tel:${business.phoneHref}`,
+        icon: 'tabler:phone-call',
+      },
+    ]}
     image={{
       src: service.image,
       alt: service.title,
@@ -77,14 +84,18 @@ const sections = [
 
   <section class="py-12 md:py-16">
     <div class="mx-auto max-w-4xl px-6">
-      <div class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-gray-900 prose-p:text-muted prose-strong:text-gray-950">
+      <div
+        class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-gray-900 prose-p:text-muted prose-strong:text-gray-950"
+      >
         <h2>{service.shortTitle} a Novara: intervento tecnico e veloce</h2>
-        {sections.map((section) => (
-          <>
-            <h3>{section.title}</h3>
-            <p set:html={section.body} />
-          </>
-        ))}
+        {
+          sections.map((section) => (
+            <>
+              <h3>{section.title}</h3>
+              <p set:html={section.body} />
+            </>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -124,7 +135,8 @@ const sections = [
     items={[
       {
         title: `Quanto costa ${service.shortTitle.toLowerCase()} a Novara?`,
-        description: 'Dipende da urgenza, accessi, tipo di ostruzione e attrezzatura necessaria. La prima valutazione parte dalla chiamata.',
+        description:
+          'Dipende da urgenza, accessi, tipo di ostruzione e attrezzatura necessaria. La prima valutazione parte dalla chiamata.',
       },
       {
         title: 'Serve rompere pavimenti o rivestimenti?',

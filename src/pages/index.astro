@@ -16,8 +16,7 @@ import { business, servicePages, zonePages } from '~/data/spurghi';
 const metadata = {
   title: 'Spurghi a Novara 24H - Pronto Intervento 30 Minuti',
   ignoreTitleTemplate: true,
-  description:
-    `Spurghi a Novara con pronto intervento 24H per autospurgo, disotturazione tubi, videoispezioni e fosse biologiche. Chiama ${business.phone}.`,
+  description: `Spurghi a Novara con pronto intervento 24H per autospurgo, disotturazione tubi, videoispezioni e fosse biologiche. Chiama ${business.phone}.`,
 };
 
 const homeSections = [
@@ -63,8 +62,8 @@ const homeSections = [
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="font-semibold">Spurghi Novara Fast</span> interviene per scarichi bloccati, autospurgo,
-      videoispezioni e problemi fognari urgenti in abitazioni, condomini e attività.
+      <span class="font-semibold">Spurghi Novara Fast</span> interviene per scarichi bloccati, autospurgo, videoispezioni
+      e problemi fognari urgenti in abitazioni, condomini e attività.
     </Fragment>
   </Hero>
 
@@ -72,14 +71,18 @@ const homeSections = [
 
   <section class="py-12 md:py-16">
     <div class="mx-auto max-w-4xl px-6">
-      <div class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-gray-900 prose-p:text-muted prose-strong:text-gray-950">
+      <div
+        class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-gray-900 prose-p:text-muted prose-strong:text-gray-950"
+      >
         <h2>Spurghi Novara Fast: servizio rapido, chiaro e locale</h2>
-        {homeSections.map((section) => (
-          <>
-            <h3>{section.title}</h3>
-            <p set:html={section.body} />
-          </>
-        ))}
+        {
+          homeSections.map((section) => (
+            <>
+              <h3>{section.title}</h3>
+              <p set:html={section.body} />
+            </>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -151,7 +154,9 @@ const homeSections = [
       alt: 'Videoispezione tubazioni professionale a Novara',
     }}
   >
-    <Fragment slot="content">Una tubazione ispezionata bene racconta molto più di un sintomo visto dall’esterno.</Fragment>
+    <Fragment slot="content"
+      >Una tubazione ispezionata bene racconta molto più di un sintomo visto dall’esterno.</Fragment
+    >
   </Content>
 
   <Steps
@@ -213,14 +218,43 @@ const homeSections = [
     title="Domande frequenti su spurghi e autospurgo"
     columns={2}
     items={[
-      { title: 'Fate spurghi a Novara anche di notte?', description: 'Sì, il pronto intervento è disponibile 24H per scarichi bloccati, reflussi, allagamenti e problemi fognari urgenti.' },
-      { title: 'Qual è il numero da chiamare?', description: `Il numero diretto è <strong>${business.phone}</strong>. Da smartphone puoi usare anche il pulsante fisso in basso.` },
-      { title: 'Quando serve un autospurgo a Novara?', description: 'Serve per fosse biologiche piene, pozzetti pieni, reflui da aspirare, allagamenti e tratti fognari con accumuli importanti.' },
-      { title: 'Fate disotturazione tubi a Novara?', description: 'Sì, interveniamo su WC, lavandini, docce, vasche, colonne di scarico e tubazioni esterne.' },
-      { title: 'La videoispezione è sempre necessaria?', description: 'No. È consigliata quando il problema torna spesso o quando bisogna individuare rotture, radici o cedimenti.' },
-      { title: 'Operate anche a Trecate e Galliate?', description: 'Sì, abbiamo pagine dedicate per <strong>spurghi a Trecate</strong>, Galliate, Borgomanero, Cameri e Cerano.' },
-      { title: 'Cosa devo dire al telefono?', description: 'Indica indirizzo, tipo di scarico bloccato, da quanto tempo succede e se l’acqua risale da altri punti.' },
-      { title: 'Posso scrivere via email?', description: `Per richieste non urgenti puoi scrivere a <strong>${business.email}</strong>. Per emergenze è meglio chiamare.` },
+      {
+        title: 'Fate spurghi a Novara anche di notte?',
+        description:
+          'Sì, il pronto intervento è disponibile 24H per scarichi bloccati, reflussi, allagamenti e problemi fognari urgenti.',
+      },
+      {
+        title: 'Qual è il numero da chiamare?',
+        description: `Il numero diretto è <strong>${business.phone}</strong>. Da smartphone puoi usare anche il pulsante fisso in basso.`,
+      },
+      {
+        title: 'Quando serve un autospurgo a Novara?',
+        description:
+          'Serve per fosse biologiche piene, pozzetti pieni, reflui da aspirare, allagamenti e tratti fognari con accumuli importanti.',
+      },
+      {
+        title: 'Fate disotturazione tubi a Novara?',
+        description: 'Sì, interveniamo su WC, lavandini, docce, vasche, colonne di scarico e tubazioni esterne.',
+      },
+      {
+        title: 'La videoispezione è sempre necessaria?',
+        description:
+          'No. È consigliata quando il problema torna spesso o quando bisogna individuare rotture, radici o cedimenti.',
+      },
+      {
+        title: 'Operate anche a Trecate e Galliate?',
+        description:
+          'Sì, abbiamo pagine dedicate per <strong>spurghi a Trecate</strong>, Galliate, Borgomanero, Cameri e Cerano.',
+      },
+      {
+        title: 'Cosa devo dire al telefono?',
+        description:
+          'Indica indirizzo, tipo di scarico bloccato, da quanto tempo succede e se l’acqua risale da altri punti.',
+      },
+      {
+        title: 'Posso scrivere via email?',
+        description: `Per richieste non urgenti puoi scrivere a <strong>${business.email}</strong>. Per emergenze è meglio chiamare.`,
+      },
     ]}
   />
 

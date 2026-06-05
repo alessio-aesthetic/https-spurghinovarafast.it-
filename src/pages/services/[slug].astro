@@ -1,0 +1,149 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { business, servicePages } from '~/data/spurghi';
+
+export function getStaticPaths() {
+  return servicePages.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const metadata = {
+  title: `${service.title} | Spurghi Novara Fast`,
+  description: `${service.title}: intervento rapido, tecnico e leggibile per scarichi, fognature e autospurgo. Chiama ${business.phone}.`,
+};
+
+const sections = [
+  {
+    title: 'Quando serve il servizio',
+    body: `Il servizio di <strong>${service.title}</strong> è utile quando ${service.problem}. In questi casi è meglio evitare tentativi casuali: prodotti chimici, ferri improvvisati o pressione non controllata possono spostare il blocco più avanti e rendere l’intervento più complesso. Una chiamata rapida permette di capire se il problema è locale o se riguarda una parte più ampia dell’impianto.`,
+  },
+  {
+    title: 'Come interveniamo',
+    body: `Prima di uscire raccogliamo poche informazioni essenziali: indirizzo, tipo di scarico, da quanto tempo si presenta il problema e presenza di rigurgiti o cattivi odori. Per la <strong>${service.shortTitle.toLowerCase()} a Novara</strong> utilizziamo ${service.method}. L’obiettivo è liberare la linea senza stressare tubi, sifoni o pozzetti.`,
+  },
+  {
+    title: 'Perché non aspettare',
+    body: `Uno scarico lento oggi può diventare un blocco completo domani. Se l’acqua risale, se più scarichi rallentano insieme o se compare odore di fognatura, conviene richiedere assistenza. Intervenire presto riduce il rischio di allagamenti, danni ai pavimenti, fermo attività e disagi in casa, negozio o condominio.`,
+  },
+  {
+    title: 'Supporto locale',
+    body: `Spurghi Novara Fast lavora con contatto diretto, sede indicata in <strong>${business.address}</strong> e numero sempre visibile. Per emergenze e informazioni puoi chiamare <strong>${business.phone}</strong>. Per richieste non urgenti è disponibile anche l’email <strong>${business.email}</strong>.`,
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Servizio"
+    title={service.title}
+    subtitle={service.description}
+    actions={[{ variant: 'primary', text: `Chiama ${business.phone}`, href: `tel:${business.phoneHref}`, icon: 'tabler:phone-call' }]}
+    image={{
+      src: service.image,
+      alt: service.title,
+    }}
+  />
+
+  <Features2
+    title={`Perché scegliere ${service.shortTitle}`}
+    subtitle={`Un servizio chiaro per chi cerca ${service.shortTitle.toLowerCase()} e pronto intervento spurghi a Novara.`}
+    columns={3}
+    items={[
+      {
+        title: 'Valutazione rapida',
+        description: 'Capire il sintomo prima di intervenire evita perdite di tempo e soluzioni sbagliate.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Attrezzatura adatta',
+        description: service.method,
+        icon: service.icon,
+      },
+      {
+        title: 'Controllo finale',
+        description: 'Dopo la pulizia verifichiamo il deflusso e spieghiamo cosa osservare nei giorni successivi.',
+        icon: 'tabler:check',
+      },
+    ]}
+  />
+
+  <section class="py-12 md:py-16">
+    <div class="mx-auto max-w-4xl px-6">
+      <div class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-gray-900 prose-p:text-muted prose-strong:text-gray-950">
+        <h2>{service.shortTitle} a Novara: intervento tecnico e veloce</h2>
+        {sections.map((section) => (
+          <>
+            <h3>{section.title}</h3>
+            <p set:html={section.body} />
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Content
+    isReversed
+    items={[
+      {
+        title: 'Pronto intervento 24H',
+        description: 'Per scarichi inutilizzabili, rigurgiti, reflussi e problemi che non possono aspettare.',
+        icon: 'tabler:alarm',
+      },
+      {
+        title: 'Intervento ordinato',
+        description: 'Lavoriamo dagli accessi disponibili e manteniamo pulita la zona operativa.',
+        icon: 'tabler:settings',
+      },
+      {
+        title: 'Assistenza locale',
+        description: `Telefono diretto: ${business.phone}.`,
+        icon: 'tabler:map-pin',
+      },
+    ]}
+    image={{
+      src: '/images/hero-spurgo.png',
+      alt: 'Autospurgo professionale a Novara',
+    }}
+  >
+    <Fragment slot="content">
+      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Quando chiamare subito</h2>
+      Se l’acqua torna indietro, se senti odore di fognatura o se il blocco coinvolge più scarichi, è meglio non rimandare.
+    </Fragment>
+  </Content>
+
+  <FAQs
+    title={`Domande frequenti su ${service.shortTitle}`}
+    items={[
+      {
+        title: `Quanto costa ${service.shortTitle.toLowerCase()} a Novara?`,
+        description: 'Dipende da urgenza, accessi, tipo di ostruzione e attrezzatura necessaria. La prima valutazione parte dalla chiamata.',
+      },
+      {
+        title: 'Serve rompere pavimenti o rivestimenti?',
+        description: 'Di norma no. Prima si lavora da scarichi, pozzetti, sifoni o punti di ispezione già presenti.',
+      },
+      {
+        title: 'Intervenite anche di sera o nei festivi?',
+        description: `Sì, per urgenze puoi chiamare il <strong>${business.phone}</strong>.`,
+      },
+      {
+        title: 'Cosa devo dire al telefono?',
+        description: 'Indica indirizzo, punto bloccato, da quanto tempo succede e se l’acqua risale da altri scarichi.',
+      },
+    ]}
+  />
+
+  <CallToAction
+    actions={[{ variant: 'primary', text: `Chiama ${business.phone}`, href: `tel:${business.phoneHref}` }]}
+    title={`Hai bisogno di ${service.shortTitle}?`}
+    subtitle={`Chiama Spurghi Novara Fast: organizziamo il servizio più adatto senza testi complicati e senza passaggi inutili.`}
+  />
+</Layout>

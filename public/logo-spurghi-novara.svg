@@ -1,0 +1,34 @@
+<svg width="720" height="180" viewBox="0 0 720 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="shield" x1="28" y1="14" x2="148" y2="166" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#60A5FA"/>
+      <stop offset="0.42" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#0F2F68"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="56" y1="38" x2="123" y2="132" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset="0.28" stop-color="#CBD5E1"/>
+      <stop offset="0.62" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#94A3B8"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="180" height="180" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="14" stdDeviation="10" flood-color="#0F172A" flood-opacity="0.26"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <path d="M90 12L150 34V80C150 121 126 151 90 166C54 151 30 121 30 80V34L90 12Z" fill="url(#shield)"/>
+    <path d="M90 24L139 42V80C139 113 120 138 90 151C60 138 41 113 41 80V42L90 24Z" stroke="white" stroke-opacity="0.34" stroke-width="3"/>
+    <path d="M63 108C76 92 93 92 118 101" stroke="#E0F2FE" stroke-width="13" stroke-linecap="round"/>
+    <path d="M65 74H113C123 74 131 82 131 92C131 102 123 110 113 110H108" stroke="url(#metal)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M60 56H104C116 56 126 66 126 78V82" stroke="url(#metal)" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="66" cy="125" r="8" fill="#E0F2FE"/>
+    <circle cx="91" cy="124" r="6" fill="#BAE6FD"/>
+    <circle cx="115" cy="124" r="8" fill="#E0F2FE"/>
+  </g>
+  <g>
+    <text x="188" y="77" font-family="Inter, Arial, sans-serif" font-size="44" font-weight="900" fill="#0F172A" letter-spacing="-1.2">Spurghi</text>
+    <text x="188" y="126" font-family="Inter, Arial, sans-serif" font-size="52" font-weight="900" fill="#2563EB" letter-spacing="-1.6">Novara</text>
+    <path d="M190 141H512" stroke="#93C5FD" stroke-width="5" stroke-linecap="round"/>
+    <text x="530" y="124" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800" fill="#334155">24H</text>
+  </g>
+</svg>

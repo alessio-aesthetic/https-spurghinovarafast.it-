@@ -1,0 +1,178 @@
+---
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { business, zonePages } from '~/data/spurghi';
+
+export function getStaticPaths() {
+  return zonePages.map((zone) => ({
+    params: { slug: zone.slug },
+    props: { zone },
+  }));
+}
+
+const { zone } = Astro.props;
+const metadata = {
+  title: `${zone.title} 24H | Autospurgo e disotturazioni`,
+  description: `${zone.title}: pronto intervento per autospurgo, disotturazione tubi, fognature e videoispezioni. Chiama ${business.phone}.`,
+};
+
+const sections = [
+  {
+    title: `Interventi rapidi nella zona di ${zone.city}`,
+    body: `Se cerchi <strong>${zone.title}</strong>, probabilmente hai uno scarico bloccato, una fossa biologica piena, un pozzetto che non scarica o cattivi odori dalla rete fognaria. In questi casi serve una risposta semplice: capire il problema, scegliere il mezzo giusto e intervenire senza perdere tempo.`,
+  },
+  {
+    title: 'Scarichi, pozzetti e fognature',
+    body: `A ${zone.city} interveniamo su WC, lavandini, docce, colonne di scarico, pozzetti, fosse biologiche e tubazioni esterne. Quando il blocco è localizzato si lavora con sonde e pulizia mirata; se il problema riguarda reflui o accumuli importanti, può servire l’autospurgo. Per problemi che tornano spesso, la videoispezione aiuta a vedere cosa succede dentro la linea.`,
+  },
+  {
+    title: 'Vie e aree servite',
+    body: `Il servizio copre anche le principali aree locali, tra cui ${zone.roads}. Durante la chiamata è utile indicare via, tipo di immobile e punto in cui compare il problema. Queste informazioni aiutano a organizzare un intervento più preciso, soprattutto in condomini, cortili, negozi e attività con scarichi molto utilizzati.`,
+  },
+  {
+    title: 'Quando chiamare',
+    body: `Conviene chiamare subito se l’acqua risale, se il bagno non è utilizzabile, se il cortile si allaga o se senti odore di fognatura. Per <strong>spurghi a ${zone.city}</strong> il numero diretto è <strong>${business.phone}</strong>. Per richieste non urgenti puoi scrivere a <strong>${business.email}</strong>.`,
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Zona servita"
+    image={{
+      src: '/images/hero-spurgo.png',
+      alt: `${zone.title} con autospurgo professionale`,
+    }}
+    actions={[{ variant: 'primary', text: `Chiama ${business.phone}`, href: `tel:${business.phoneHref}` }]}
+  >
+    <Fragment slot="title">
+      {zone.title} <br />
+      <span class="text-accent dark:text-white">pronto intervento 24H</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Autospurgo, disotturazione tubi, pulizia fognature e videoispezioni nella zona di {zone.city}.
+    </Fragment>
+  </Hero>
+
+  <Stats
+    title={`Servizio a ${zone.city}`}
+    stats={[
+      { title: 'Disponibilità', amount: '24H' },
+      { title: 'Intervento', amount: 'Rapido' },
+      { title: 'Servizi', amount: '6' },
+      { title: 'Zona', amount: zone.city },
+    ]}
+  />
+
+  <section class="py-12 md:py-16">
+    <div class="mx-auto max-w-4xl px-6">
+      <div class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-gray-900 prose-p:text-muted prose-strong:text-gray-950">
+        <h2>{zone.title}: autospurgo e disotturazioni vicino a te</h2>
+        {sections.map((section) => (
+          <>
+            <h3>{section.title}</h3>
+            <p set:html={section.body} />
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Features3
+    title={`Cosa facciamo a ${zone.city}`}
+    subtitle={`Servizi essenziali per chi cerca spurghi, autospurgo e fognature nella zona di ${zone.city}.`}
+    columns={3}
+    isBeforeContent={true}
+    items={[
+      {
+        title: 'Scarichi bloccati',
+        description: `Disotturazione WC, lavandini, docce e colonne di scarico a ${zone.city}.`,
+        icon: 'tabler:tool',
+      },
+      {
+        title: 'Autospurgo',
+        description: `Svuotamento fosse biologiche, pozzetti e reflui con mezzo attrezzato.`,
+        icon: 'tabler:truck',
+      },
+      {
+        title: 'Videoispezioni',
+        description: `Controllo tubazioni per blocchi ricorrenti, rotture o radici.`,
+        icon: 'tabler:camera-search',
+      },
+    ]}
+  />
+
+  <Steps2
+    title={`Come richiedere spurghi a ${zone.city}`}
+    subtitle="Tre passaggi semplici, senza descrizioni inutilmente complicate."
+    callToAction={{ text: `Chiama ${business.phone}`, href: `tel:${business.phoneHref}` }}
+    items={[
+      {
+        title: 'Chiama',
+        description: `Descrivi il problema e indica la zona precisa di ${zone.city}.`,
+      },
+      {
+        title: 'Valutiamo',
+        description: 'Capiremo se serve disotturazione, autospurgo, pulizia pozzetti o videoispezione.',
+      },
+      {
+        title: 'Interveniamo',
+        description: 'Liberiamo la linea, aspiriamo i reflui o controlliamo la tubazione.',
+      },
+    ]}
+  />
+
+  <FAQs
+    title={`FAQ su ${zone.title}`}
+    columns={2}
+    items={[
+      {
+        title: `Fate pronto intervento a ${zone.city}?`,
+        description: `Sì, gestiamo urgenze per scarichi bloccati, reflussi, allagamenti e fosse biologiche nella zona di <strong>${zone.city}</strong>.`,
+      },
+      {
+        title: `Quanto costa un intervento di spurgo a ${zone.city}?`,
+        description: 'Il costo dipende da urgenza, accessi, tipo di problema e attrezzatura necessaria. La prima valutazione parte dalla chiamata.',
+      },
+      {
+        title: 'Che informazioni servono?',
+        description: `Indirizzo, tipo di immobile, scarico coinvolto e presenza di pozzetti. Se sei vicino a ${zone.roads}, puoi indicarlo per facilitare l’organizzazione.`,
+      },
+      {
+        title: 'Posso richiedere anche manutenzione programmata?',
+        description: 'Sì, oltre alle urgenze organizziamo pulizie periodiche di pozzetti, fosse biologiche, caditoie e tratti fognari.',
+      },
+    ]}
+  />
+
+  <Features2
+    title="Contatto diretto"
+    tagline="Pronto intervento"
+    columns={2}
+    items={[
+      {
+        title: 'Telefono',
+        description: business.phone,
+        icon: 'tabler:phone-call',
+      },
+      {
+        title: 'Email',
+        description: business.email,
+        icon: 'tabler:mail',
+      },
+    ]}
+  />
+
+  <CallToAction
+    actions={[{ variant: 'primary', text: `Chiama ${business.phone}`, href: `tel:${business.phoneHref}` }]}
+    title={`Serve un intervento a ${zone.city}?`}
+    subtitle="Chiama ora e descrivi il problema: organizziamo l’uscita più adatta."
+  />
+</Layout>

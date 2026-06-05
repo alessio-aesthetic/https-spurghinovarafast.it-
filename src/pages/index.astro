@@ -1,0 +1,239 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Content from '~/components/widgets/Content.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import { business, servicePages, zonePages } from '~/data/spurghi';
+
+const metadata = {
+  title: 'Spurghi a Novara 24H - Pronto Intervento 30 Minuti',
+  ignoreTitleTemplate: true,
+  description:
+    `Spurghi a Novara con pronto intervento 24H per autospurgo, disotturazione tubi, videoispezioni e fosse biologiche. Chiama ${business.phone}.`,
+};
+
+const homeSections = [
+  {
+    title: 'Pronto intervento spurghi a Novara',
+    body: `Spurghi Novara Fast è pensato per chi cerca <strong>spurghi a Novara</strong> senza perdere tempo tra centralini, testi confusi e promesse generiche. Quando un WC si blocca, l’acqua risale dalla doccia o un pozzetto inizia a emanare cattivi odori, serve un contatto diretto e una risposta ordinata. Il numero da chiamare è <strong>${business.phone}</strong>, attivo per urgenze e richieste di intervento.`,
+  },
+  {
+    title: 'Autospurgo, disotturazioni e fognature',
+    body: `Interveniamo su scarichi domestici, colonne condominiali, pozzetti, fosse biologiche, reflui e tubazioni esterne. Il servizio di <strong>autospurgo a Novara</strong> è utile quando il problema richiede aspirazione, pulizia o svuotamento; la disotturazione tubi serve invece quando il blocco è localizzato e può essere rimosso con strumenti tecnici. Ogni situazione viene valutata prima di partire.`,
+  },
+  {
+    title: 'Perché chiamare subito',
+    body: `Un piccolo rallentamento può diventare un’emergenza, soprattutto se coinvolge più scarichi. Se l’acqua torna indietro, se senti odore di fognatura o se il bagno non è utilizzabile, non aspettare. Il <strong>pronto intervento spurghi a Novara</strong> permette di limitare danni, sporco, allagamenti e fermo attività, soprattutto in condomini, negozi, ristoranti e uffici.`,
+  },
+  {
+    title: 'Videoispezione per problemi ricorrenti',
+    body: `Quando lo scarico si blocca più volte, la soluzione non è ripetere sempre lo stesso intervento. Con la <strong>videoispezione fognature a Novara</strong> si può controllare l’interno della tubazione e individuare radici, rotture, pendenze errate, incrostazioni o punti in cui i residui si accumulano. È un servizio utile per decidere cosa fare con più precisione.`,
+  },
+  {
+    title: 'Zone servite e contatti',
+    body: `La sede indicata è <strong>${business.address}</strong>. Operiamo a Novara e nei comuni vicini: Trecate, Galliate, Borgomanero, Cameri e Cerano. Per richieste non urgenti puoi scrivere a <strong>${business.email}</strong>, mentre per emergenze è sempre meglio telefonare. Su mobile trovi il pulsante di chiamata fisso in basso, così il contatto resta comodo anche mentre leggi.`,
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: `Chiama ${business.phone}`,
+        href: `tel:${business.phoneHref}`,
+        icon: 'tabler:phone-call',
+      },
+      { text: 'Vedi i servizi', href: '#features' },
+    ]}
+    image={{ src: '/images/hero-spurgo.png', alt: 'Camion autospurgo professionale a Novara' }}
+  >
+    <Fragment slot="title">
+      Spurghi a Novara <span class="text-accent dark:text-white">24H</span>
+      <span class="hidden xl:inline"> - Pronto intervento</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="font-semibold">Spurghi Novara Fast</span> interviene per scarichi bloccati, autospurgo,
+      videoispezioni e problemi fognari urgenti in abitazioni, condomini e attività.
+    </Fragment>
+  </Hero>
+
+  <Note title="Operativi 24H:" description={`Sede: ${business.address} · Telefono: ${business.phone}`} />
+
+  <section class="py-12 md:py-16">
+    <div class="mx-auto max-w-4xl px-6">
+      <div class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-gray-900 prose-p:text-muted prose-strong:text-gray-950">
+        <h2>Spurghi Novara Fast: servizio rapido, chiaro e locale</h2>
+        {homeSections.map((section) => (
+          <>
+            <h3>{section.title}</h3>
+            <p set:html={section.body} />
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Features
+    id="features"
+    tagline="Servizi"
+    title="Interventi per scarichi, fognature e allagamenti"
+    subtitle="Ogni servizio ha una pagina dedicata, con testo leggibile e keyword naturali."
+    items={servicePages.map((service) => ({
+      title: service.title,
+      description: service.description,
+      icon: service.icon,
+      callToAction: {
+        text: 'Scopri',
+        href: `/services/${service.slug}`,
+      },
+    }))}
+  />
+
+  <Content
+    isReversed
+    tagline="Metodo"
+    title="Disotturazione tubi a Novara con verifica finale"
+    items={[
+      {
+        title: 'Ascolto del problema',
+        description: 'Prima di partire chiediamo dove si presenta il blocco, da quanto tempo e se ci sono rigurgiti.',
+      },
+      {
+        title: 'Strumento corretto',
+        description: 'Usiamo sonde, autospurgo o videoispezione in base al tipo di scarico e agli accessi disponibili.',
+      },
+      {
+        title: 'Deflusso controllato',
+        description: 'Dopo l’intervento verifichiamo che l’acqua scorra e segnaliamo eventuali criticità.',
+      },
+    ]}
+    image={{
+      src: '/images/tecnico-spurgo.png',
+      alt: 'Tecnico per disotturazione tubi a Novara',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Interventi puliti e rapidi</h3>
+      Il punto non è solo sbloccare uno scarico: è capire perché si è bloccato e ridurre il rischio che succeda di nuovo.
+    </Fragment>
+  </Content>
+
+  <Content
+    isAfterContent
+    title="Videoispezioni fognature a Novara"
+    items={[
+      {
+        title: 'Problemi ricorrenti',
+        description: 'Perfetta quando WC, lavandini o pozzetti si bloccano più volte nello stesso punto.',
+      },
+      {
+        title: 'Diagnosi visiva',
+        description: 'La telecamera aiuta a individuare radici, rotture, cedimenti e incrostazioni.',
+      },
+      {
+        title: 'Decisioni più chiare',
+        description: 'Sapere cosa c’è dentro la tubazione evita interventi ripetuti e poco utili.',
+      },
+    ]}
+    image={{
+      src: '/images/videoispezione-spurgo.png',
+      alt: 'Videoispezione tubazioni professionale a Novara',
+    }}
+  >
+    <Fragment slot="content">Una tubazione ispezionata bene racconta molto più di un sintomo visto dall’esterno.</Fragment>
+  </Content>
+
+  <Steps
+    title="Come funziona il pronto intervento"
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Chiamata</span>',
+        description: `Chiama il ${business.phone} e descrivi il problema: scarico bloccato, rigurgito, allagamento o fossa piena.`,
+        icon: 'tabler:phone-call',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Valutazione</span>',
+        description: 'Capiremo se serve autospurgo, disotturazione, videoispezione o pulizia pozzetti.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Intervento</span>',
+        description: 'Arriviamo con mezzi e strumenti coerenti con il problema segnalato.',
+        icon: 'tabler:truck',
+      },
+      {
+        title: 'Risolto.',
+        icon: 'tabler:check',
+      },
+    ]}
+    image={{
+      src: '/images/hero-spurgo.png',
+      alt: 'Camion spurgo operativo a Novara',
+    }}
+  />
+
+  <Features2
+    title="Zone servite"
+    subtitle="Interveniamo a Novara e nei comuni vicini con pagine locali dedicate."
+    tagline="Copertura"
+    columns={3}
+    items={zonePages.map((zone) => ({
+      title: zone.title,
+      description: `Autospurgo, disotturazioni e interventi fognari nella zona di ${zone.city}.`,
+      icon: 'tabler:map-pin',
+      callToAction: {
+        text: 'Apri zona',
+        href: `/zone/${zone.slug}`,
+      },
+    }))}
+  />
+
+  <Stats
+    title="Numeri operativi"
+    stats={[
+      { title: 'Disponibilità', amount: '24H' },
+      { title: 'Obiettivo arrivo', amount: '30 min' },
+      { title: 'Zone servite', amount: '6' },
+      { title: 'Servizi principali', amount: '6' },
+    ]}
+  />
+
+  <FAQs
+    title="Domande frequenti su spurghi e autospurgo"
+    columns={2}
+    items={[
+      { title: 'Fate spurghi a Novara anche di notte?', description: 'Sì, il pronto intervento è disponibile 24H per scarichi bloccati, reflussi, allagamenti e problemi fognari urgenti.' },
+      { title: 'Qual è il numero da chiamare?', description: `Il numero diretto è <strong>${business.phone}</strong>. Da smartphone puoi usare anche il pulsante fisso in basso.` },
+      { title: 'Quando serve un autospurgo a Novara?', description: 'Serve per fosse biologiche piene, pozzetti pieni, reflui da aspirare, allagamenti e tratti fognari con accumuli importanti.' },
+      { title: 'Fate disotturazione tubi a Novara?', description: 'Sì, interveniamo su WC, lavandini, docce, vasche, colonne di scarico e tubazioni esterne.' },
+      { title: 'La videoispezione è sempre necessaria?', description: 'No. È consigliata quando il problema torna spesso o quando bisogna individuare rotture, radici o cedimenti.' },
+      { title: 'Operate anche a Trecate e Galliate?', description: 'Sì, abbiamo pagine dedicate per <strong>spurghi a Trecate</strong>, Galliate, Borgomanero, Cameri e Cerano.' },
+      { title: 'Cosa devo dire al telefono?', description: 'Indica indirizzo, tipo di scarico bloccato, da quanto tempo succede e se l’acqua risale da altri punti.' },
+      { title: 'Posso scrivere via email?', description: `Per richieste non urgenti puoi scrivere a <strong>${business.email}</strong>. Per emergenze è meglio chiamare.` },
+    ]}
+  />
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: `Chiama ${business.phone}`,
+        href: `tel:${business.phoneHref}`,
+        icon: 'tabler:phone-call',
+      },
+    ]}
+    title="Scarico bloccato o fognatura in emergenza?"
+    subtitle="Chiama Spurghi Novara Fast: testi chiari, contatto diretto e intervento organizzato."
+  />
+</Layout>

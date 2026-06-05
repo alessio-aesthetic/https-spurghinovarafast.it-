@@ -1,0 +1,46 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import { business } from '~/data/spurghi';
+
+const metadata = {
+  title: 'Contatti',
+  description: `Contatta Spurghi Novara Fast per pronto intervento spurghi 24H a Novara. Telefono ${business.phone}.`,
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText tagline="Contatti" title="Parla con Spurghi Novara Fast" />
+
+  <ContactUs
+    id="form"
+    title="Invia una richiesta"
+    subtitle="Per emergenze è sempre meglio chiamare. Per richieste non urgenti puoi usare il form mailto."
+    inputs={[
+      { type: 'text', name: 'name', label: 'Nome' },
+      { type: 'email', name: 'email', label: 'Email' },
+      { type: 'text', name: 'phone', label: 'Telefono' },
+    ]}
+    textarea={{
+      label: 'Descrivi il problema',
+    }}
+    disclaimer={{
+      label: 'Inviando il messaggio accetti di essere ricontattato per la richiesta indicata.',
+    }}
+    button="Invia richiesta"
+    description={`Telefono pronto intervento: ${business.phone}`}
+    formAction={`mailto:${business.email}`}
+  />
+
+  <Features2
+    title="Contatti diretti"
+    items={[
+      { title: 'Telefono', description: business.phone, icon: 'tabler:headset' },
+      { title: 'Email', description: business.email, icon: 'tabler:mail' },
+      { title: 'Indirizzo', description: business.address, icon: 'tabler:map-pin' },
+      { title: 'Orari', description: 'Pronto intervento 24H', icon: 'tabler:clock' },
+    ]}
+  />
+</Layout>

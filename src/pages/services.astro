@@ -1,0 +1,118 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { business, servicePages } from '~/data/spurghi';
+
+const metadata = {
+  title: 'Servizi spurghi Novara',
+  description: `Servizi di spurgo, autospurgo, disotturazione tubi, videoispezioni e pronto intervento 24H a Novara. Telefono ${business.phone}.`,
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Servizi"
+    title="Servizi di spurgo e disotturazione a Novara"
+    subtitle="Ogni servizio ha una pagina dedicata con testo chiaro, immagine specifica, vantaggi e CTA telefonica."
+    actions={[{ variant: 'primary', text: `Chiama ${business.phone}`, href: `tel:${business.phoneHref}`, icon: 'tabler:phone-call' }]}
+    image={{
+      src: '/images/hero-spurgo.png',
+      alt: 'Camion autospurgo a Novara',
+    }}
+  />
+
+  <Features2
+    title="Scegli il servizio"
+    subtitle="Disotturazioni, videoispezioni, fosse biologiche e pronto intervento sono organizzati per rispondere a problemi diversi."
+    columns={3}
+    items={servicePages.map((service) => ({
+      title: service.title,
+      description: service.description,
+      icon: service.icon,
+      callToAction: {
+        text: 'Apri pagina',
+        href: `/services/${service.slug}`,
+      },
+    }))}
+  />
+
+  <section class="py-12 md:py-16">
+    <div class="mx-auto max-w-4xl px-6">
+      <div class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-gray-900 prose-p:text-muted">
+        <h2>Servizi professionali per scarichi e fognature</h2>
+        <p>
+          I servizi di Spurghi Novara Fast coprono le urgenze più frequenti in abitazioni, condomini, negozi e aziende. Un impianto di scarico può dare segnali diversi: acqua lenta, cattivo odore, rumori nella colonna, rigurgiti, pozzetti pieni o allagamenti. Ogni segnale richiede un approccio differente. Per questo abbiamo organizzato pagine separate per ogni servizio, con testi leggibili e immagini dedicate al tipo di intervento.
+        </p>
+        <p>
+          La disotturazione WC non è uguale alla pulizia di un lavandino; una doccia bloccata ha cause diverse da una fossa biologica piena; una videoispezione serve quando il problema deve essere visto dall'interno. Avere una pagina specifica aiuta l'utente a riconoscere il proprio caso e a chiamare con informazioni più precise. Questo rende più semplice organizzare l'uscita e scegliere l'attrezzatura corretta.
+        </p>
+        <p>
+          Il numero di pronto intervento è {business.phone}, mentre la sede indicata è {business.address}. Per richieste non urgenti puoi scrivere a {business.email}. In caso di emergenza, invece, il telefono resta la scelta migliore: consente di spiegare il problema in tempo reale e capire se serve un intervento immediato.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Content
+    isReversed
+    items={[
+      {
+        title: 'Disotturazione rapida',
+        description: 'Interveniamo su WC, lavandini, docce, colonne di scarico e tubazioni bloccate.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: 'Autospurgo attrezzato',
+        description: 'Svuotamento fosse biologiche, aspirazione reflui e interventi su pozzetti e fognature.',
+        icon: 'tabler:truck',
+      },
+      {
+        title: 'Diagnosi tecnica',
+        description: 'Videoispezioni e verifica dei tratti critici quando il problema ritorna.',
+        icon: 'tabler:camera-search',
+      },
+    ]}
+    image={{
+      src: '/images/tecnico-spurgo.png',
+      alt: 'Tecnico spurghi al lavoro',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Interventi organizzati</h3>
+    </Fragment>
+  </Content>
+
+  <Testimonials
+    title="Cosa apprezzano i clienti"
+    testimonials={[
+      {
+        testimonial: 'Risposta veloce e problema risolto senza interventi inutili. Il tecnico ha spiegato cosa stava succedendo.',
+        name: 'Cliente privato',
+        job: 'Novara',
+        image: { src: '/images/service-disotturazione-wc.png', alt: 'Disotturazione WC' },
+      },
+      {
+        testimonial: 'Intervento ordinato per fossa biologica piena. Comunicazione chiara e tempi rispettati.',
+        name: 'Amministratore',
+        job: 'Condominio',
+        image: { src: '/images/service-spurgo-fosse-biologiche.png', alt: 'Spurgo fossa biologica' },
+      },
+      {
+        testimonial: 'La videoispezione ha individuato il punto esatto del problema, evitando tentativi inutili.',
+        name: 'Attivita commerciale',
+        job: 'Novara',
+        image: { src: '/images/service-videoispezioni-fognature.png', alt: 'Videoispezione tubazioni' },
+      },
+    ]}
+  />
+
+  <CallToAction
+    actions={[{ variant: 'primary', text: `Chiama ${business.phone}`, href: `tel:${business.phoneHref}` }]}
+    title="Hai bisogno di un servizio urgente?"
+    subtitle="Contattaci e descrivi il problema: organizziamo l’uscita più adatta."
+  />
+</Layout>

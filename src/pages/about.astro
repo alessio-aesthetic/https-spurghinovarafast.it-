@@ -1,0 +1,100 @@
+---
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { business, zonePages } from '~/data/spurghi';
+
+const metadata = {
+  title: 'Chi siamo',
+  description: `Spurghi Novara Fast: azienda di pronto intervento per spurghi, autospurgo e fognature a Novara. Telefono ${business.phone}.`,
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Chi siamo"
+    image={{
+      src: '/images/hero-spurgo.png',
+      alt: 'Camion spurghi professionale a Novara',
+    }}
+  >
+    <Fragment slot="title">
+      Una squadra tecnica per <br />
+      <span class="text-accent dark:text-white">emergenze fognarie a Novara</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Spurghi Novara Fast interviene su scarichi bloccati, fosse biologiche, videoispezioni e autospurgo urgente.
+      Una squadra organizzata per urgenze, manutenzioni e interventi programmati.
+    </Fragment>
+  </Hero>
+
+  <Stats
+    title="Numeri del servizio"
+    stats={[
+      { title: 'Disponibilità', amount: '24H' },
+      { title: 'Zone', amount: '6' },
+      { title: 'Servizi', amount: '6' },
+      { title: 'Sede', amount: 'Novara' },
+    ]}
+  />
+
+  <Features3
+    title="Come lavoriamo"
+    subtitle="Metodo tecnico, comunicazione chiara e mezzi adatti al tipo di problema."
+    columns={3}
+    isBeforeContent={true}
+    items={[
+      {
+        title: 'Ascolto del problema',
+        description: 'Raccogliamo le informazioni utili prima dell’uscita per arrivare preparati.',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Intervento tecnico',
+        description: 'Usiamo attrezzatura per disotturazioni, autospurgo, aspirazione e videoispezione.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: 'Verifica finale',
+        description: 'Controlliamo il deflusso e spieghiamo cosa è stato rilevato.',
+        icon: 'tabler:check',
+      },
+    ]}
+  />
+
+  <Steps2
+    title="Zone dove operiamo"
+    subtitle="Le città principali dove interveniamo con autospurgo, disotturazioni e videoispezioni."
+    items={zonePages.map((zone) => ({
+      title: zone.title,
+      description: `Servizio di autospurgo, disotturazione tubi e pronto intervento nella zona di ${zone.city}.`,
+      icon: 'tabler:map-pin',
+      callToAction: {
+        text: 'Apri pagina',
+        href: `/zone/${zone.slug}`,
+      },
+    }))}
+  />
+
+  <Features2
+    title="Contatto diretto"
+    tagline="Pronto intervento"
+    columns={2}
+    items={[
+      {
+        title: 'Chiama il tecnico',
+        description: business.phone,
+        icon: 'tabler:phone-call',
+      },
+      {
+        title: 'Scrivici',
+        description: business.email,
+        icon: 'tabler:mail',
+      },
+    ]}
+  />
+</Layout>

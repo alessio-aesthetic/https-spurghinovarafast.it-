@@ -1,0 +1,66 @@
+site:
+  name: Spurghi Novara
+  site: 'https://spurghinovarafast.it'
+  base: '/'
+  trailingSlash: false
+
+  googleSiteVerificationId:
+
+metadata:
+  title:
+    default: Spurghi Novara 24H
+    template: '%s - Spurghi Novara'
+  description: "Spurghi Novara Fast: pronto intervento 24H per autospurgo, disotturazione tubi, videoispezioni e fognature a Novara. Telefono 0321 174 0079."
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: Spurghi Novara
+    images:
+      - url: '/opengraph.jpg'
+        width: 1200
+        height: 628
+    type: website
+  twitter:
+    handle:
+    site:
+    cardType: summary_large_image
+
+i18n:
+  language: it
+  textDirection: ltr
+
+apps:
+  blog:
+    isEnabled: false
+    postsPerPage: 6
+    post:
+      isEnabled: false
+      permalink: '/%slug%'
+      robots:
+        index: false
+    list:
+      isEnabled: false
+      pathname: 'blog'
+      robots:
+        index: false
+    category:
+      isEnabled: false
+      pathname: 'category'
+      robots:
+        index: false
+    tag:
+      isEnabled: false
+      pathname: 'tag'
+      robots:
+        index: false
+    isRelatedPostsEnabled: false
+    relatedPostsCount: 0
+
+analytics:
+  vendors:
+    googleAnalytics:
+      id: null
+
+ui:
+  theme: 'light:only'
